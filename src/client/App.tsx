@@ -36,7 +36,9 @@ function App() {
   //   .then(data =>{ console.log(data);})
   //   //.then(data => setRiskData(data))
   // };
-
+useEffect(() => {
+  document.title = "Mildew Index";
+}, []);
 const generateMildex = () => {
   const params = {
     lat: position.lat,
