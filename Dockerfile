@@ -5,7 +5,8 @@ FROM node:22.12.0-slim
 WORKDIR /app
 
 # Copy the requirements file to the working directory
-COPY package*.json yarn.lock /app
+COPY package*.json .
+COPY yarn.lock .
 
 # Install the dependencies
 RUN npm install
