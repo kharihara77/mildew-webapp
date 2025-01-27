@@ -25,6 +25,9 @@ export default {
       bg: {
         main: "#F7F3E3",
       },
+      },
+      translate:{
+        '1/7': '15%',
       }
   	}
   },

@@ -99,14 +99,14 @@ export function ForecastForm({ onSubmit, position, setPosition, days, setDays, t
                     required
                 />
 
-                <div className ="absolute right-2 top-1 -translate-y-1/4 flex flex-col ">
+                <div className ="absolute right-2 top-1 -translate-y-1/7 flex flex-col ">
 
                 <button 
                     type="button"
                     onClick = {incrementDays}
                     className=" border-0 p-0 text-neutral-300/[0.87] bg-transparent hover:text-stone-400 transition-colors p-1 focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
                 >
-                    <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-tj5bde-Svg">
+                    <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-tj5bde-Svg" fill="currentColor">
                         <path d="M4.516 13.452c0.436 0.446 1.043 0.481 1.576 0l3.908-3.747 3.908 3.747c0.533 0.481 
                         1.141 0.446 1.574 0 0.436-0.445 0.408-1.197 0-1.615-0.406-0.418-4.695-4.502-4.695-4.502-0.217-0.223-0.502-0.335-0.787-0.335s-0.57 0.112-0.789 0.335c0 0-4.287 4.084-4.695 4.502s-0.436 1.17 0 1.615z">
 
