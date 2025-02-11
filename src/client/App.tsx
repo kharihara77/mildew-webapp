@@ -26,16 +26,6 @@ function App() {
   const [timezone, setTimezone] = useState("GMT-10");
   const [showForecast, setShowForecast] = useState(false);
 
-  // TODO: Option to just hit the api endpoint directly so that we don't have to run the python script
-  // const handleclick = () => {
-  //   fetch('/test?' + new URLSearchParams({
-  //     lat: position.lat.toString(),
-  //     long: position.lng.toString()
-  //   }))
-  //   .then(res => res.json())
-  //   .then(data =>{ console.log(data);})
-  //   //.then(data => setRiskData(data))
-  // };
 useEffect(() => {
   document.title = "Mildew Index";
 }, []);
