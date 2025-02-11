@@ -33,9 +33,6 @@ export function ForecastForm({ onSubmit, position, setPosition, days, setDays, t
     };
     
     return (
-        //<div className = "flex items-center justify-center ">
-        //w-full max-w-md space-y-6 rounded-xl bg-[#0a0d1a]/50 p-8 backdrop-blur-sm 
-
         <form onSubmit={handleSubmit} className=" space-y-6 rounded-l ">
             
             <div className="relative ">

@@ -63,14 +63,13 @@ const generateMildex = () => {
   } catch (error) {
     console.log(error);
   }
-  
-
 }
   const handleFormSubmit = (latitude:number, longitude:number, days:number) => {
     setPosition({ lat: latitude, lng: longitude });
     setDays(days);
     setShowForecast(true);
     generateMildex();
+    
   }
 
   return (
