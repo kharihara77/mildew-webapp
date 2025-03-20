@@ -10,7 +10,7 @@ export function Header() {
                   The Mildew Risk Index predicts the likelihood of mildew development based on environmental conditions.
                 </p>
                 <ul className="space-y-1 ml-6 list-disc text-[#FDF6E9]/80">
-                  <li>Forecast range: Minimum 4 days, Maximum 16 days</li>
+                  <li>Forecast range: Minimum 1 days, Maximum 16 days</li>
                   <li>Index scale: 0 (Low Risk) to 100 (High Risk)</li>
                 </ul>
               </div>

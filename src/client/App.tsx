@@ -8,6 +8,7 @@ import IndexForecast from "./custom/functions/index-forecast";
 import {ForecastForm} from "./custom/components/ForecastForm";
 import { c } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
 import { Car } from "lucide-react";
+import { error } from "console";
 
 
 interface RiskDataItem {
@@ -24,8 +25,8 @@ function App() {
     lng: -100.29})
   const [days, setDays] = useState(7);
   const [timezone, setTimezone] = useState("GMT-10");
-  const [showForecast, setShowForecast] = useState(false);
-
+  //const [showForecast, setShowForecast] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
 useEffect(() => {
   document.title = "Mildew Index";
 }, []);
@@ -37,6 +38,7 @@ const generateMildex = () => {
     days: days
   };
   console.log(params);
+  setIsLoading(true);
   try {
   const response = fetch("/mildex_forecast", {
     method: "POST",
@@ -49,15 +51,21 @@ const generateMildex = () => {
     .then(data => {
       setRiskData(data);
       console.log(data);
+      setIsLoading(false);
+  }) .catch(error => {
+    console.log(error);
+    setIsLoading(false);
   });
+
   } catch (error) {
     console.log(error);
+    setIsLoading(false);
   }
 }
   const handleFormSubmit = (latitude:number, longitude:number, days:number) => {
     setPosition({ lat: latitude, lng: longitude });
     setDays(days);
-    setShowForecast(true);
+    //setShowForecast(true);
     generateMildex();
     
   }
@@ -65,7 +73,7 @@ const generateMildex = () => {
   return (
     
     <>
-   
+    
       <div className="min-h-screen bg-theme-light p-8">
         <div className="mx-auto  max-w-7xl">
           <Header />
@@ -77,7 +85,8 @@ const generateMildex = () => {
                 </CardHeader>
 
                 <CardContent className="">
-                  <ForecastForm onSubmit={handleFormSubmit} position={position} setPosition={setPosition} days={days} setDays={setDays} timezone={timezone} setTimezone={setTimezone} />
+                  <ForecastForm onSubmit={handleFormSubmit} position={position} setPosition={setPosition} days={days} setDays={setDays} 
+                  timezone={timezone} setTimezone={setTimezone} isLoading={isLoading} />
                 </CardContent>
               
               </Card>
@@ -87,6 +96,7 @@ const generateMildex = () => {
            </div>
         </div>
       </div>
+    
     </>
     
   )
