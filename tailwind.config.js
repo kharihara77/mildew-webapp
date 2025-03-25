@@ -17,13 +17,13 @@ export default {
   		},
   		colors: {
         theme: {
-          light: "#F7F3E3",
+          light: "#FFFFFF",
           medium: "#756d54",
           dark: "#580d0f",
       },
       border: "#756d54",
       bg: {
-        main: "#F7F3E3",
+        main: "#FFFFFF",
       },
       },
       translate:{
