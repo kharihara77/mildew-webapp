@@ -43,9 +43,9 @@ app.post("/mildex_forecast", (req, res) => {
       if (data.error) {
         throw new Error(data.error);
       }
-      const riskDataItems:RiskDataItem[] = data.message.map((item:[number, string]) => ({
-        risk_index: item[0],
-        date: item[1]
+      const riskDataItems:RiskDataItem[] = data.message.map((item:[string, number]) => ({
+        risk_index: item[1],
+        date: item[0]
       }));
       console.log(riskDataItems);
       res.send(riskDataItems);
