@@ -74,8 +74,8 @@ const generateMildex = () => {
     
     <>
     
-      <div className="min-h-screen bg-theme-light p-8">
-        <div className="mx-auto  max-w-7xl">
+      <div className="min-h-screen p-8">
+        <div className="mx-auto bg-theme-light  max-w-7xl">
           <Header />
         
            <div className={`grid gap-8 ${riskData.length <= 0 ? 'grid-cols-1' : 'md:grid-cols-[400px,1fr]'}`}>
