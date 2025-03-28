@@ -9,6 +9,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    // fontSize: {
+    //   base: '1.03rem', // Default is usually 1rem
+    //   // Other font sizes can be adjusted proportionally
+    // },
+    container: {
+       center: true,
+      // padding: "0rem",
+      // screens: {
+      //   "2xl": "1400px",
+      // },
+    },
   	extend: {
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -20,7 +31,9 @@ export default {
           light: "#FFFFFF",
           medium: "#756d54",
           dark: "#580d0f",
+          dark_compliment: "#0D5856",
       },
+      
       border: "#756d54",
       bg: {
         main: "#FFFFFF",
