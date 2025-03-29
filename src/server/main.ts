@@ -14,8 +14,16 @@ app.use(express.json());
 
 
 interface RiskDataItem {
-  risk_index: number;
   date: string;
+  risk_index: number;
+  high_temp: number;
+  low_temp: number;
+  max_humidity: number;
+  min_humidity: number;
+  max_wind_speed: number;
+  dominant_wind_direction: number;
+  total_precipitation: number;
+  precipitation_probability: number;
 }
 
 
@@ -43,9 +51,17 @@ app.post("/mildex_forecast", (req, res) => {
       if (data.error) {
         throw new Error(data.error);
       }
-      const riskDataItems:RiskDataItem[] = data.message.map((item:[string, number]) => ({
+      const riskDataItems:RiskDataItem[] = data.message.map((item:[string, number, number, number, number,number, number, number, number, number]) => ({
+        date: item[0],
         risk_index: item[1],
-        date: item[0]
+        high_temp: item[2],
+        low_temp: item[3],
+        max_humidity: item[4],
+        min_humidity: item[5],
+        max_wind_speed: item[6],
+        dominant_wind_direction: item[7],
+        total_precipitation: item[8],
+        precipitation_probability: item[9],
       }));
       console.log(riskDataItems);
       res.send(riskDataItems);

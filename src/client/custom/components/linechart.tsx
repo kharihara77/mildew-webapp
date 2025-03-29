@@ -19,7 +19,7 @@ export function LineChartComponent({ data, days }: LineChartProps) {
         risk: item.risk_index,
       }))
     return (
-        <Card>
+        <Card className="border-theme-dark_compliment/80 border-2">
             <CardHeader>
             <div className="flex items-center justify-left gap-3 mb-2">
                 <div className="bg-gradient-to-r from-theme-dark/80 to-theme-dark/90 rounded-full p-2">
