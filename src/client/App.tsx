@@ -22,6 +22,14 @@ import { ChartLine } from 'lucide-react';
 interface RiskDataItem {
   date: string;
   risk_index: number;
+  high_temp: number;
+  low_temp: number;
+  max_humidity: number;
+  min_humidity: number;
+  max_wind_speed: number;
+  dominant_wind_direction: number;
+  total_precipitation: number;
+  precipitation_probability: number;
 }
 
 function App() {
@@ -104,7 +112,7 @@ const generateMildex = () => {
           
         </div>
         ) : riskData.length > 0 ? (
-          <div className="p-6 border border-gray-300 dark:border-gray-700 rounded-lg bg-theme-light shadow-md border border-theme-medium/20">
+          <div className="p-4">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-8">Forecast Results</h2>
             <LineChartComponent data={riskData} days={days} />
             <div className="mt-6">
