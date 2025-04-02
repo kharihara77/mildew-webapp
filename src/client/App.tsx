@@ -1,4 +1,5 @@
 import "./App.css";
+import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import React from 'react'
 import IndexCard from "./custom/components/IndexCard";
@@ -7,12 +8,13 @@ import { Card, CardTitle, CardHeader, CardContent } from "@/components/ui/card";
 import IndexForecast from "./custom/functions/index-forecast";
 import {ForecastForm} from "./custom/components/ForecastForm";
 import { LineChartComponent } from "./custom/components/linechart";
-import { c } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
+//import { c } from "node_modules/vite/dist/node/types.d-aGj9QkWt";
 import { Car } from "lucide-react";
 import { error } from "console";
 import {OrbitProgress} from "react-loading-indicators"
 import { RiskTable } from "./custom/components/table";
 import { ChartLine } from 'lucide-react';
+import Map from "./custom/components/map";
 
 
 
@@ -37,12 +39,12 @@ function App() {
   const [riskData, setRiskData] = useState<RiskDataItem[]>([]);
   const highestIndex = Math.max(...riskData.map((item) => item.risk_index));
   const [position, setPosition] = useState({    
-    lat: 10.14,
-    lng: -100.29})
+    lat: 36.77,
+    lng: -119.41})
   const [days, setDays] = useState(7);
   const [timezone, setTimezone] = useState("GMT-10");
-  //const [showForecast, setShowForecast] = useState(false); 
   const [isLoading, setIsLoading] = useState(false);
+  
 useEffect(() => {
   document.title = "Mildew Index";
 }, []);
@@ -81,7 +83,6 @@ const generateMildex = () => {
   const handleFormSubmit = (latitude:number, longitude:number, days:number) => {
     setPosition({ lat: latitude, lng: longitude });
     setDays(days);
-    //setShowForecast(true);
     generateMildex();
     
   }
@@ -99,7 +100,8 @@ const generateMildex = () => {
            {/* <div className={`grid gap-8 ${riskData.length <= 0 ? 'grid-cols-1' : 'md:grid-cols-[400px,1fr]'}`}> */}
            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">    
       {/* Input Parameters Form - Left Side */}
-      <div className="lg:col-span-4 lg:sticky lg:top-4 lg:self-start max-h-[calc(100vh-1rem)] ">  
+      <div className="lg:col-span-4 lg:sticky lg:top-4 lg:self-start max-h-[calc(100vh-1rem)] ">
+            
           <ForecastForm onSubmit={handleFormSubmit} position={position} setPosition={setPosition} days={days} setDays={setDays} 
           timezone={timezone} setTimezone={setTimezone} isLoading={isLoading} />
                 

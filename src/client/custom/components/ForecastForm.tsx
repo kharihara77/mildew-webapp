@@ -5,6 +5,7 @@ import {Label} from "@/components/ui/label";
 import {ChevronUp, ChevronDown} from "lucide-react"
 import {OrbitProgress} from "react-loading-indicators"
 import { Card, CardTitle, CardHeader, CardContent } from "@/components/ui/card";
+import Map from "./map";
 
 
 import TimezoneSelect, {allTimezones} from 'react-timezone-select';
@@ -36,11 +37,21 @@ export function ForecastForm({ onSubmit, position, setPosition, days, setDays, t
     };
     
     return (
-        <Card className="bg-theme-light shadow-md border border-theme-medium/20">
-            <CardHeader>
+        <Card className="h-full">
+            {/* <CardHeader>
                 <CardTitle className="text-theme-dark">Location Details</CardTitle>
-            </CardHeader>
-            <CardContent className="h-full">           
+            </CardHeader> */}
+            <CardContent className="pt-6 ">
+                <h2 className="text-xl font-semibold mb-4">Input Parameters</h2>
+                <div className="space-y-10"> 
+                    <div>
+                        <Map position={position} setPosition={setPosition} />
+                    </div>    
+                        
+                    
+                    
+                
+                          
                     <form onSubmit={handleSubmit} className=" space-y-6 rounded-l ">
                         
                         <div className="relative ">
@@ -189,6 +200,7 @@ export function ForecastForm({ onSubmit, position, setPosition, days, setDays, t
                             )} */}
                         
                     </form>
+                    </div>
                 </CardContent> 
         </Card>
     )
