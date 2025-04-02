@@ -156,7 +156,7 @@ export function ForecastForm({ onSubmit, position, setPosition, days, setDays, t
 
                             
                         
-                        <div className="relative">
+                        {/* <div className="relative">
                             <label
                                 htmlFor="timezone"
                                 className="text-sm font-medium text-theme-medium mb-1 block"
@@ -173,7 +173,7 @@ export function ForecastForm({ onSubmit, position, setPosition, days, setDays, t
                             
                             />
                         
-                        </div>
+                        </div> */}
                         {isLoading ? (
                             <div className="flex justify-center items-center">
                                 <OrbitProgress color="#0D5856" size="small" text="Loading" textColor="#580d0f" />

@@ -52,7 +52,7 @@ const generateMildex = () => {
   const params = {
     lat: position.lat,
     long: position.lng,
-    timezone: timezone,
+    timezone: "auto",
     days: days
   };
   console.log(params);
