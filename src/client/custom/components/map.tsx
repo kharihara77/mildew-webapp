@@ -89,6 +89,7 @@ function Map({ position, setPosition }: any) {
                     },
                     (error) => {
                       console.error("Error getting location:", error);
+                      setLoadingState(false);
                       // Handle error appropriately, e.g., display an error message to the user
                     }
                   );
