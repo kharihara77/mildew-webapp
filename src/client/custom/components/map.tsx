@@ -103,6 +103,7 @@ function Map({ position, setPosition }: any) {
 
       function MapComponent() {
         const map = useMap();
+        
         mapRef.current = map; // Assign the map instance to the ref
         return null; // This component doesn't render anything
       }
@@ -113,25 +114,7 @@ function Map({ position, setPosition }: any) {
         <p className="text-xs font-light my-1 ">
             Click on the map to place a marker or use button to get your current location
         </p>
-        {/* {loadingState ? (
-            <div className='flex items-center justify-center'>
-                <OrbitProgress size="small"  text= "Finding" color="teal" />
-            </div>
-        ) :( 
-            <button 
-            className="h-6 px-4 my-3 text-sm text-teal-100 transition-colors duration-150 bg-teal-600 rounded-lg focus:outline-none hover:bg-teal-800 flex items-center justify-center" 
-            onClick={getCurrentLocation}
-        >
-            {loadingState ?(
-                <OrbitProgress size="small"  text= "Finding" color="teal" />
-            ): <MapPinned className="h-4 w-4 mr-2" />
-            }
-            <MapPinned className="h-4 w-4 mr-2" />
-            Get Current Location
-        </button>
-        )
-
-        } */}
+      
          <button 
             className="h-6 px-4 my-3 text-sm text-teal-100 transition-colors duration-150 bg-teal-600 rounded-lg focus:outline-none hover:bg-teal-800 flex items-center justify-between" 
             onClick={getCurrentLocation}
@@ -147,6 +130,10 @@ function Map({ position, setPosition }: any) {
       <MapContainer 
         center={[position.lat, position.lng]} 
         zoom={5} 
+        worldCopyJump={true}
+        minZoom={3}
+        // maxBounds={[[-90, -180], [90, 180]]}
+        // maxBoundsViscosity={.8}
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer
